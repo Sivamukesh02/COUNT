@@ -1,0 +1,373 @@
+/* ================= COMMON ROOT + BACKGROUND VIDEO ================= */
+.nc-root {
+  position: fixed;          /* full screen-a pidikkum, separate section varaadhu */
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  background: #020617;      /* video load aagura varaikum */
+  font-family: "Orbitron", "Segoe UI", sans-serif;
+}
+
+.nc-video {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;        /* screen full-a nirappum, stretch aagaadhu */
+  z-index: 0;
+}
+
+.nc-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.45);   /* video dark level: 0.3 - 0.6 maathi paarunga */
+  z-index: 1;
+}
+
+.lc-card,
+.cs-wrap {
+  position: relative;
+  z-index: 2;               /* video mela theriya */
+}
+
+/* ================= COUNTDOWN PAGE ================= */
+.lc-card {
+  text-align: center;
+}
+
+.lc-title {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 6px;
+  color: #38bdf8;
+  text-shadow: 0 0 8px #38bdf8, 0 0 22px #a855f7;
+}
+
+.lc-sub {
+  margin: 6px 0 0;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #64748b;
+}
+
+.lc-ring-wrap {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 32px auto;
+}
+
+.lc-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  overflow: visible;
+}
+
+.lc-thin {
+  stroke: #00d4ff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px #00d4ff) drop-shadow(0 0 10px #00d4ff);
+}
+.lc-thin.lc-pink {
+  stroke: #d946ef;
+  filter: drop-shadow(0 0 4px #d946ef) drop-shadow(0 0 10px #d946ef);
+}
+.lc-thin.lc-inner {
+  stroke: #38bdf8;
+  stroke-width: 1.5;
+  opacity: 0.85;
+}
+
+.lc-faint {
+  stroke: #a855f7;
+  stroke-width: 1;
+  opacity: 0.45;
+  filter: drop-shadow(0 0 4px #a855f7);
+}
+
+.lc-dot {
+  fill: #00d4ff;
+  filter: drop-shadow(0 0 6px #00d4ff);
+}
+.lc-dot-pink {
+  fill: #d946ef;
+  filter: drop-shadow(0 0 6px #d946ef);
+}
+
+.lc-progress-svg {
+  transform: rotate(-90deg);
+}
+.lc-track {
+  stroke: rgba(148, 163, 184, 0.12);
+  stroke-width: 8;
+}
+.lc-progress {
+  stroke-width: 8;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px #a78bfa) drop-shadow(0 0 14px #3b82f6);
+}
+
+.lc-head {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.lc-head-dot {
+  position: absolute;
+  top: 30px;                /* 100 - R(70) */
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow: 0 0 8px #22d3ee, 0 0 18px #22d3ee, 0 0 30px #0ea5e9;
+}
+
+.lc-center {
+  position: absolute;
+  inset: 45px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle, #04101f, #020617);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.25) inset;
+}
+
+.lc-number {
+  font-size: 52px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 10px #00e5ff, 0 0 25px #00e5ff, 0 0 50px #3b82f6;
+  animation: lc-pulse 1.5s ease-in-out infinite;
+}
+.lc-number.lc-done {
+  color: #f0abfc;
+  text-shadow: 0 0 10px #d946ef, 0 0 30px #d946ef, 0 0 60px #a855f7;
+}
+
+@keyframes lc-pulse {
+  50% {
+    text-shadow: 0 0 6px #00e5ff, 0 0 14px #00e5ff, 0 0 28px #3b82f6;
+  }
+}
+
+.lc-btns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.lc-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: rgba(0, 212, 255, 0.06);
+  color: #38bdf8;
+  border: 1px solid #38bdf8;
+  font-size: 12px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.lc-btn:hover:not(:disabled) {
+  box-shadow: 0 0 22px #38bdf8;
+  transform: translateY(-1px);
+}
+.lc-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.lc-btn-reset {
+  color: #d946ef;
+  border-color: #d946ef;
+  background: rgba(217, 70, 239, 0.06);
+  box-shadow: 0 0 10px rgba(217, 70, 239, 0.3);
+}
+.lc-btn-reset:hover {
+  box-shadow: 0 0 22px #d946ef !important;
+}
+
+/* ================= COMING SOON PAGE ================= */
+.cs-wrap {
+  max-width: 420px;
+  padding: 24px;
+  text-align: center;
+}
+
+.cs-title {
+  margin: 0;
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: 14px;
+  text-indent: 14px;        /* letter-spacing center-a irukka */
+}
+
+.cs-cyan {
+  color: #e0faff;
+  text-shadow: 0 0 8px #22d3ee, 0 0 20px #22d3ee, 0 0 45px #0ea5e9;
+  animation: cs-flicker 3s infinite;
+}
+.cs-pink {
+  margin-top: 8px;
+  color: #f5e1ff;
+  text-shadow: 0 0 8px #d946ef, 0 0 20px #d946ef, 0 0 45px #a855f7;
+}
+
+.cs-text {
+  margin: 44px 0 22px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+
+.cs-btn {
+  padding: 11px 26px;
+  border-radius: 10px;
+  background: rgba(168, 85, 247, 0.1);
+  color: #c4b5fd;
+  border: 1px solid #a78bfa;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.4);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.cs-btn:hover {
+  box-shadow: 0 0 26px #a78bfa;
+  transform: translateY(-1px);
+}
+
+@keyframes cs-flicker {
+  0%, 92%, 100% { opacity: 1; }
+  94% { opacity: 0.75; }
+  96% { opacity: 1; }
+  98% { opacity: 0.8; }
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width: 600px) {
+  /* overflow remove */
+  .nc-root {
+    overflow: hidden;
+  }
+
+  .nc-video,
+  .nc-overlay {
+    width: 100%;
+    height: 100dvh;            /* mobile address-bar issue-ku */
+    object-position: center center;
+  }
+
+  /* ---------- COUNTDOWN PAGE ---------- */
+  /* Ring-a screen-oda exact center-la vekkum, video center-oda match aagum */
+  .lc-card {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .lc-ring-wrap {
+    margin: 0;                 /* center-la irukka */
+  }
+
+  .lc-title {
+    position: absolute;
+    top: 7vh;
+    left: 0;
+    right: 0;
+    font-size: 16px;
+    letter-spacing: 4px;
+  }
+
+  .lc-sub {
+    position: absolute;
+    top: calc(7vh + 28px);
+    left: 0;
+    right: 0;
+    font-size: 8px;
+    letter-spacing: 3px;
+  }
+
+  .lc-btns {
+    position: absolute;
+    bottom: 7vh;
+    left: 0;
+    right: 0;
+  }
+
+  .lc-btn {
+    padding: 9px 16px;
+    font-size: 11px;
+  }
+
+  /* ---------- COMING SOON PAGE ---------- */
+  .cs-wrap {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  .cs-title {
+    font-size: 38px;
+    letter-spacing: 8px;
+    text-indent: 8px;
+  }
+
+  .cs-text {
+    margin: 32px 0 20px;
+    font-size: 13px;
+  }
+
+  .cs-btn {
+    padding: 10px 18px;
+    font-size: 11px;
+  }
+}
+
+/* Romba chinna phones (360px keezha) */
+@media (max-width: 380px) {
+  .cs-title {
+    font-size: 30px;
+    letter-spacing: 5px;
+    text-indent: 5px;
+  }
+
+  .lc-ring-wrap {
+    transform: scale(0.9);
+  }
+}
+
+/* Landscape / height kammi screen */
+@media (max-height: 520px) and (max-width: 900px) {
+  .lc-title,
+  .lc-sub {
+    display: none;
+  }
+
+  .lc-btns {
+    bottom: 3vh;
+  }
+
+  .cs-title {
+    font-size: 32px;
+  }
+}
