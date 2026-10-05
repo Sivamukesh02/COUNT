@@ -48,7 +48,7 @@
   margin: 6px 0 0;
   font-size: 9px;
   letter-spacing: 4px;
-  color: #64748b;
+  color: #ffffff;
 }
 
 .lc-ring-wrap {
@@ -167,8 +167,8 @@
   padding: 10px 20px;
   border-radius: 10px;
   background: rgba(0, 212, 255, 0.06);
-  color: #38bdf8;
-  border: 1px solid #38bdf8;
+  color: #ffffff;
+  border: 1px solid #ffffff;
   font-size: 12px;
   letter-spacing: 2px;
   cursor: pointer;
@@ -184,8 +184,8 @@
   cursor: not-allowed;
 }
 .lc-btn-reset {
-  color: #d946ef;
-  border-color: #d946ef;
+  color: #ffffff;
+  border-color: #ffffff;
   background: rgba(217, 70, 239, 0.06);
   box-shadow: 0 0 10px rgba(217, 70, 239, 0.3);
 }
